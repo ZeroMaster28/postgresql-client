@@ -1,4 +1,5 @@
 import psycopg2
+import pandas as pd
 from configparser import RawConfigParser
 
 def connect():
@@ -25,6 +26,9 @@ def main():
         if query == 'exit':
             db_conn.close()
             db_conn = None
+        else:
+            query_results = pd.read_sql(query, db_conn)
+            print(query_results)
 
 
 
