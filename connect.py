@@ -19,6 +19,12 @@ def connect():
 
 def main():
     db_conn = connect()
+    print('Type \'exit\' to disconnect')
+    while db_conn != None:
+        query = input('query>')
+        if query == 'exit':
+            db_conn.close()
+            db_conn = None
 
 
 
